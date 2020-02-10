@@ -1,0 +1,174 @@
+.specialties h4 .badge, .students h4 .badge, .newStudent h4 .Badge {
+  background-color: #f27a07;
+  color: white;
+  padding: 5px 5px; }
+
+/* Navi Component */
+.navigation {
+  width: 100%;
+  height: 80px;
+  background-color: #f7f7f7; }
+  .navigation img {
+    width: 60px;
+    height: 60px; }
+  .navigation h4 {
+    font-size: 25px;
+    font-family: "Tinos", serif;
+    font-weight: bold;
+    color: #0e82c6; }
+  .navigation a:hover {
+    text-decoration: none; }
+  .navigation .navItem ul li {
+    font-family: "Tinos";
+    font-size: 18px;
+    font-weight: bold;
+    border-right: 1px solid #696767;
+    padding: 0 10px; }
+  .navigation .navItem ul li:nth-child(3) {
+    border-right: none; }
+
+/* SpecialtyList Component */
+.specialties h4 {
+  font-family: "Merriweather";
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold; }
+  .specialties h4 .badge, .specialties .newStudent h4 .Badge, .newStudent .specialties h4 .Badge {
+    background-color: #f27a07;
+    color: white; }
+.specialties .ListGroupItem {
+  font-size: 14px;
+  font-family: "Merriweather";
+  border: 1px solid;
+  border-bottom: none;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #696767; }
+  .specialties .ListGroupItem:nth-last-child(1) {
+    border-bottom: 1px solid; }
+  .specialties .ListGroupItem.active {
+    background-color: #0e82c6;
+    border-color: #0e82c6;
+    color: white; }
+
+/* StudentList Component */
+.students h4 {
+  font-family: "Merriweather";
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold; }
+.students table thead tr {
+  background-color: #f7f7f7 !important;
+  color: #696767;
+  border: none;
+  font-family: "Merriweather";
+  letter-spacing: 1px;
+  font-size: 16px;
+  border: 2px solid #696767; }
+.students table tbody tr {
+  font-family: "Tinos";
+  border: 1px solid #696767;
+  font-size: 17px;
+  border-top: none; }
+  .students table tbody tr .fa {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer; }
+  .students table tbody tr .fa-edit {
+    color: #f27a07; }
+  .students table tbody tr .fa-plus {
+    color: green; }
+  .students table tbody tr .fa-minus {
+    color: red; }
+  .students table tbody tr .fa-trash {
+    color: #d51f20; }
+
+/*EditStudent Component */
+.editForm {
+  background-color: yellow;
+  height: 55px; }
+  .editForm input {
+    border: 1px solid black; }
+  .editForm .year {
+    width: 70px;
+    text-align: right; }
+  .editForm .group {
+    width: 150px;
+    float: right; }
+  .editForm .editFormSubmit {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    line-height: 30px; }
+  .editForm .fa-save {
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 20px;
+    color: green; }
+  .editForm .fa-window-close {
+    font-size: 40px;
+    line-height: 40px;
+    color: red;
+    font-weight: bold;
+    line-height: 30px; }
+
+/* NewStudentForm Component */
+.newStudent {
+  font-size: 16px;
+  color: #696767;
+  font-family: "Tinos"; }
+  .newStudent h4 {
+    font-family: "Merriweather";
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold; }
+  .newStudent input {
+    font-size: 14px;
+    border: 1px solid #696767;
+    color: #696767; }
+  .newStudent select {
+    border: 1px solid #696767;
+    font-size: 14px;
+    color: #696767; }
+  .newStudent .submitButton {
+    background-color: green;
+    font-weight: bold;
+    letter-spacing: 1px; }
+  .newStudent .studentPic img {
+    width: 100%;
+    height: 90%; }
+
+/* TechWarriors Component */
+.techWarriorsProject table thead {
+  background-color: #f7f7f7 !important;
+  color: #696767;
+  border: none;
+  font-family: "Merriweather";
+  letter-spacing: 1px;
+  font-size: 16px; }
+.techWarriorsProject table tbody tr {
+  font-family: "Tinos";
+  font-size: 17px; }
+  .techWarriorsProject table tbody tr .fa {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer;
+    color: red; }
+.techWarriorsProject .emptyGroup {
+  font-family: "Tinos";
+  color: red;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold; }
+
+/* NotFound Component */
+.notFound {
+  width: 100%;
+  }
+  .notFound img {
+    width: 100%;
+    height: calc(100vh-80px); }
+
+/*# sourceMappingURL=style.css.map */

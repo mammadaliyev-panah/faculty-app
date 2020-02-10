@@ -1,0 +1,263 @@
+$merriweather: "Merriweather";
+$tinos: "Tinos";
+$color: #f27a07;
+$colorBlue: #0e82c6;
+$colorGray: #696767;
+%badge {
+  background-color: $color;
+  color: white;
+  padding: 5px 5px;
+}
+/* Navi Component */
+
+.navigation {
+  width: 100%;
+  height: 80px;
+  background-color: #f7f7f7;
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+  h4 {
+    font-size: 25px;
+    font-family: $tinos, serif;
+    // color: #696767;
+    font-weight: bold;
+    color: $colorBlue;
+  }
+  a{
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  .navItem {
+    ul {
+      li {
+        font-family: $tinos;
+        font-size: 18px;
+        font-weight: bold;
+        border-right: 1px solid $colorGray;
+        padding: 0 10px;
+      }
+      li:nth-child(3) {
+        border-right: none;
+      }
+    }
+  }
+}
+
+/* SpecialtyList Component */
+
+.specialties {
+  h4 {
+    font-family: $merriweather;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    %badge {
+      background-color: $color;
+      color: white;
+    }
+    .badge {
+      @extend %badge;
+    }
+  }
+  .ListGroupItem {
+    font-size: 14px;
+    font-family: $merriweather;
+    border: 1px solid;
+    border-bottom: none;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: $colorGray;
+    &:nth-last-child(1) {
+      border-bottom: 1px solid;
+    }
+    &.active {
+      background-color: $colorBlue;
+      border-color: $colorBlue;
+      color: white;
+    }
+  }
+}
+
+/* StudentList Component */
+.students {
+  h4 {
+    font-family: $merriweather;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    .badge {
+      @extend %badge;
+    }
+  }
+  table {
+    thead {
+      tr {
+        background-color: #f7f7f7 !important;
+        color: $colorGray;
+        border: none;
+        font-family: $merriweather;
+        letter-spacing: 1px;
+        font-size: 16px;
+        border: 2px solid $colorGray;
+      }
+    }
+    tbody {
+      tr {
+        font-family: $tinos;
+        border: 1px solid $colorGray;
+        font-size: 17px;
+        border-top: none;
+        .fa {
+          font-size: 20px;
+          font-weight: bold;
+          padding-left: 20px;
+          cursor: pointer;
+        }
+        .fa-edit {
+          color: $color;
+        }
+        .fa-plus {
+          color: green;
+        }
+        .fa-minus {
+          color: red;
+        }
+        .fa-trash{
+          color: #d51f20
+        }
+      }
+    }
+  }
+}
+
+/*EditStudent Component */
+
+.editForm {
+  background-color: yellow;
+  height: 55px;
+  input {
+    border: 1px solid black;
+  }
+  .year {
+    width: 70px;
+    text-align: right;
+  }
+  .group {
+    width: 150px;
+    float: right;
+  }
+  .editFormSubmit {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+  }
+  .fa-save {
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 20px;
+    color: green;
+  }
+  .fa-window-close {
+    font-size: 40px;
+    line-height: 40px;
+    color: red;
+    font-weight: bold;
+    line-height: 30px;
+  }
+}
+
+/* NewStudentForm Component */
+
+.newStudent {
+  font-size: 16px;
+  color: $colorGray;
+  font-family: $tinos;
+  h4 {
+    font-family: $merriweather;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    .Badge {
+      @extend %badge;
+    }
+  }
+
+  input {
+    font-size: 14px;
+    border: 1px solid $colorGray;
+    color: $colorGray;
+  }
+  select {
+    border: 1px solid $colorGray;
+    font-size: 14px;
+    color: $colorGray;
+  }
+  .submitButton{
+    background-color: green;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .studentPic {
+    img {
+      width: 100%;
+      height: 90%;
+    }
+  }
+}
+
+/* TechWarriors Component */
+
+.techWarriorsProject{
+  table {
+    thead {
+      
+        background-color: #f7f7f7 !important;
+        color: $colorGray;
+        border: none;
+        font-family: $merriweather;
+        letter-spacing: 1px;
+        font-size: 16px;
+        
+      
+    }
+    tbody {
+      tr {
+        font-family: $tinos;
+        
+        font-size: 17px;
+        
+        .fa {
+          font-size: 20px;
+          font-weight: bold;
+          padding-left: 20px;
+          cursor: pointer;
+          color: red
+        }
+        
+      }
+    }
+  }
+  .emptyGroup{
+    font-family: $tinos;
+    color: red;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
+
+/* NotFound Component */
+
+.notFound{
+  width: 100%;
+  height: 600px;
+  img{
+    width:100%;
+    height:100%;
+  }
+}

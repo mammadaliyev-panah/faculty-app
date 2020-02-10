@@ -1,0 +1,40 @@
+/* thead tr{
+    background-color: #17a2b8 !important
+}
+tr{
+    font-weight: bold;
+}
+tbody i{
+    font-size: 30px;
+    margin-right: 30px;
+    cursor: pointer
+}
+
+.fa-edit{
+    font-size: 25px;
+    color: orange;
+    font-weight: bold;
+}
+
+.fa-plus{
+    font-size: 25px;
+    color: green;
+    font-weight: bold;
+}
+
+.fa-minus{
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+}
+
+.editForm input{
+    width: 100%
+}
+
+.editFormSubmit{
+    background-color: white;
+    border: none;
+    color: orange
+} */
+

@@ -1,27 +1,48 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionTypes from "../../redux/actions/actionTypes";
+import axios from "axios";
 class EditStudent extends Component {
-  handleEdit = e => {
+  handleEdit = async e => {
     e.preventDefault();
-    const newStudentName = this.getStudentName.value;
-    const newSpecialtyName = this.getSpecialtyName.value;
-    const newGroupNumber = this.getGroupNumber.value;
-    const newEducationYear = this.getEducationYear.value;
-    var newSpecialtyId;
+    const studentName = this.getStudentName.value;
+    const specialtyName = this.getSpecialtyName.value;
+    const groupNumber = this.getGroupNumber.value;
+    const educationYear = this.getEducationYear.value;
+    var specialtyId;
+    switch (specialtyName) {
+      case "Kompüter elmləri":
+        specialtyId = 1;
+        break;
+      case "Sistem mühəndisliyi":
+        specialtyId = 2;
+        break;
+      case "Texnologiya mühəndisliyi":
+        specialtyId = 3;
+        break;
+      case "Kompüter mühəndisliyi":
+        specialtyId = 4;
+        break;
+      default:
+        break;
+    }
 
     const data = {
-      newStudentName,
-      newSpecialtyName,
-      newSpecialtyId,
-      newGroupNumber,
-      newEducationYear
+      studentName,
+      specialtyName,
+      specialtyId,
+      groupNumber,
+      educationYear
     };
 
+    const response = await axios.put(
+      `http://localhost:3004/students/${this.props.student.id}`,
+      data
+    );
     this.props.dispatch({
       type: actionTypes.UPDATE_STUDENT,
-      id: this.props.student.id,
-      data: data
+      data: response.data,
+      id: this.props.student.id
     });
   };
 
@@ -35,7 +56,7 @@ class EditStudent extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleEdit} >
+      <form onSubmit={this.handleEdit}>
         <tr className="row editForm">
           <td className="col-md-3">
             <input

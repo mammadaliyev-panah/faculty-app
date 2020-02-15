@@ -7,9 +7,11 @@ class Navi extends Component {
       <div className="navigation">
         <nav className="navbar navbar-expand-lg navbar-light">
           <Link className="navbar-brand d-flex flex-row" to="/">
-            <img src={logo} className="img-fluid" alt="logo"/>
+            <img src={logo} className="img-fluid" alt="logo" />
           </Link>
-          <Link to="/"><h4>İnformasiya Texnologiyaları Fakültəsi</h4></Link>
+          <Link to="/">
+            <h4>İnformasiya Texnologiyaları Fakültəsi</h4>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

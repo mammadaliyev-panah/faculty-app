@@ -3,12 +3,11 @@ import { Badge, Button } from "reactstrap";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as studentAction from "../../redux/actions/studentAction";
-import uniqid from "uniqid";
 import studentPic from "../../image/students.jpeg";
-
+import axios from "axios";
 import Swal from "sweetalert2";
 class NewStudentForm extends Component {
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     const studentName = this.getStudentName.value;
     const specialtyName = this.getSpecialtyName.value;
@@ -16,8 +15,24 @@ class NewStudentForm extends Component {
     const educationYear = this.getEducationYear.value;
     var specialtyId;
 
+    switch (specialtyName) {
+      case "Kompüter elmləri":
+        specialtyId = 1;
+        break;
+      case "Sistem mwühəndisliyi":
+        specialtyId = 2;
+        break;
+      case "Texnologiya mühəndisliyi":
+        specialtyId = 3;
+        break;
+      case "Kompüter mühəndisliyi":
+        specialtyId = 4;
+        break;
+      default:
+        break;
+    }
+
     const data = {
-      id: uniqid(),
       studentName,
       specialtyName,
       specialtyId,
@@ -26,8 +41,8 @@ class NewStudentForm extends Component {
       editing: false,
       chosen: false
     };
-
-    this.props.actions.addNewStudent(data);
+    const responce = await axios.post("http://localhost:3004/students", data);
+    this.props.actions.addNewStudent(responce.data);
     Swal.fire({
       position: "center",
       icon: "success",
@@ -35,7 +50,7 @@ class NewStudentForm extends Component {
       showConfirmButton: false,
       timer: 1500
     });
-    
+
     this.getStudentName.value = "";
     this.getSpecialtyName.value = "";
     this.getGroupNumber.value = "";
@@ -75,7 +90,7 @@ class NewStudentForm extends Component {
                 <option>Kompüter elmləri</option>
                 <option>Sistem mühəndisliyi</option>
                 <option>Texnologiya mühəndisliyi</option>
-                <option>Kompüter mehəndisliyi</option>
+                <option>Kompüter mühəndisliyi</option>
               </select>
             </div>
 
@@ -114,7 +129,7 @@ class NewStudentForm extends Component {
           </form>
         </div>
         <div className="col-md-6 studentPic">
-          <img src={studentPic} alt="newStudent"/>
+          <img src={studentPic} alt="newStudent" />
         </div>
       </div>
     );

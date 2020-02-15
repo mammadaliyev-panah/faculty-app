@@ -12,8 +12,6 @@ export default function getStudentsReducer(
         editing: false,
         chosen: false
       }));
-    // case actionTypes.ADD_NEW_STUDENT:
-    //   return [...state, action.payload];
     case actionTypes.DELETE_STUDENT:
       return state.filter(student => student.id !== action.payload.id);
     case actionTypes.EDIT_STUDENT:
@@ -28,14 +26,13 @@ export default function getStudentsReducer(
         if (student.id === action.id) {
           return {
             ...student,
-            studentName: action.data.newStudentName,
-            specialtyName: action.data.newSpecialtyName,
-            groupNumber: action.data.newGroupNumber,
-            educationYear: action.data.newEducationYear,
-            specialtyId: action.data.newSpecialtyId,
+            studentName: action.data.studentName,
+            specialtyName: action.data.specialtyName,
+            groupNumber: action.data.groupNumber,
+            educationYear: action.data.educationYear,
+            specialtyId: action.data.specialtyId,
             editing: false
           };
-          
         } else return student;
       });
     case actionTypes.ADD_TO_TECHWARRIORS:
@@ -63,16 +60,15 @@ export default function getStudentsReducer(
 
     case actionTypes.CANCEL_EDITING:
       return state.map(student => {
-        if(student.id === action.id){
-          return{
+        if (student.id === action.id) {
+          return {
             ...student,
             editing: false
-          }
+          };
         } else {
-          return student
+          return student;
         }
-      })
-
+      });
 
     default:
       return state;

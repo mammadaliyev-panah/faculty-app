@@ -1,52 +1,33 @@
 {
   "students": [
     {
-      "id": 1,
-      "studentName": "Həsən Məlikov",
-      "specialtyId": 1,
-      "specialtyName": "Kompüter elmləri",
-      "groupNumber": "123.4",
-      "educationYear": "IV"
-    },
-    {
-      "id": 2,
-      "studentName": "Nailə İqbalzadə",
-      "specialtyId": 2,
-      "specialtyName": "Sistem mühəndisliyi",
-      "groupNumber": "234.5",
-      "educationYear": "III"
-    },
-    {
-      "id": 3,
-      "studentName": "Hikmət Hüseynzadə",
-      "specialtyId": 2,
-      "specialtyName": "Sistem mühəndisliyi",
-      "groupNumber": "234.5",
-      "educationYear": "III"
-    },
-    {
-      "id": 4,
-      "studentName": "Səmra Əliyeva",
-      "specialtyId": 1,
-      "specialtyName": "Kompüter elmləri",
-      "groupNumber": "123.4",
-      "educationYear": "IV"
-    },
-    {
-      "id": 5,
-      "studentName": "Ülviyyə Əliyeva",
-      "specialtyId": 3,
+      "studentName": "Rüstəm Cavadov",
       "specialtyName": "Texnologiya mühəndisliyi",
-      "groupNumber": "345.6",
-      "educationYear": "II"
+      "specialtyId": 3,
+      "groupNumber": "234.6",
+      "educationYear": "II",
+      "id": 2
     },
     {
-      "id": 6,
-      "studentName": "Kazım İskəndərov",
-      "specialtyId": 4,
+      "studentName": "Kərim Əvəzli",
+      "specialtyName": "Sistem mühəndisliyi",
+      "groupNumber": "234.5",
+      "educationYear": "II",
+      "id": 3
+    },
+    {
+      "studentName": "İsgəndər Cavadov",
+      "specialtyName": "Kompüter mühəndisliyi",
+      "groupNumber": "456.7",
+      "educationYear": "I",
+      "id": 4
+    },
+    {
+      "studentName": "Aygün Bədəlova",
       "specialtyName": "Kompüter mühəndisliyi",
       "groupNumber": "456.4",
-      "educationYear": "IV"
+      "educationYear": "IV",
+      "id": 6
     },
     {
       "id": 7,
@@ -57,12 +38,11 @@
       "educationYear": "IV"
     },
     {
-      "id": 8,
-      "studentName": "Bahadur Əhmədli",
-      "specialtyId": 1,
+      "studentName": "Bahadur Əhmədzadə",
       "specialtyName": "Kompüter elmləri",
       "groupNumber": "123.5",
-      "educationYear": "III"
+      "educationYear": "III",
+      "id": 8
     },
     {
       "id": 9,
@@ -73,12 +53,11 @@
       "educationYear": "IV"
     },
     {
-      "id": 10,
-      "studentName": "Vüqar Abdullayev",
-      "specialtyId": 1,
+      "studentName": "Zərifə Ağamalıyeva",
       "specialtyName": "Kompüter elmləri",
       "groupNumber": "123.5",
-      "educationYear": "III"
+      "educationYear": "III",
+      "id": 10
     },
     {
       "id": 11,
@@ -183,14 +162,6 @@
       "specialtyName": "Kompüter mühəndisliyi",
       "groupNumber": "456.4",
       "educationYear": "IV"
-    },
-    {
-      "id": 24,
-      "studentName": "Əli Hüseynli",
-      "specialtyId": 3,
-      "specialtyName": "Texnologiya mühəndisliyi",
-      "groupNumber": "345.5",
-      "educationYear": "III"
     },
     {
       "id": 25,
@@ -399,10 +370,28 @@
       "specialtyName": "Texnologiya mühəndisliyi",
       "groupNumber": "345.5",
       "educationYear": "III"
-    }    
+    },
+    {
+      "studentName": "İsmayıl İbrahimli",
+      "specialtyName": "Texnologiya mühəndisliyi",
+      "specialtyId": 3,
+      "groupNumber": "345.7",
+      "educationYear": "I",
+      "id": 52
+    },
+    {
+      "studentName": "Ülkər Mehdiyeva",
+      "specialtyName": "Sistem mühəndisliyi",
+      "groupNumber": "234.5",
+      "educationYear": "II",
+      "editing": false,
+      "chosen": false,
+      "id": 53
+    }
   ],
   "specialties": [
-    { "id" : "",
+    {
+      "id": "",
       "specialtyName": "Ümumi siyahı"
     },
     {
@@ -419,7 +408,7 @@
     },
     {
       "id": 4,
-      "specialtyName":"Kompüter mühəndisliyi"
-    }  
+      "specialtyName": "Kompüter mühəndisliyi"
+    }
   ]
 }

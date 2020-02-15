@@ -6,6 +6,7 @@ import * as studentAction from "../../redux/actions/studentAction";
 import * as techWarriorsAction from "../../redux/actions/techWarriorsAction";
 import EditStudent from "../edit/EditStudent";
 import Swal from "sweetalert2";
+import axios from 'axios';
 class StudentList extends Component {
   componentDidMount() {
     this.props.actions.getStudents();
@@ -44,7 +45,7 @@ class StudentList extends Component {
     });
   }
 
-  deleteStudent(student){
+  deleteStudent = async (student)=>{
     Swal.fire({
       title: "Əminsiniz?",
       text: student.studentName + ' siyahıdan silinsin?',
@@ -61,10 +62,14 @@ class StudentList extends Component {
           student.studentName + " siyahıdan çıxarıldı",
           "success"
         );
+        
+         
 
         this.props.actions.deleteStudent(student);
       }
     });
+    await axios.delete(`http://localhost:3004/students/${student.id}`);
+    this.props.actions.removeFromTechWarriors(student);
   }
   render() {
     return (
@@ -74,7 +79,6 @@ class StudentList extends Component {
         </h4>
         <table className="table">
           <thead>
-            {/* <div> */}
               <tr className="row">
                 <th className="col-md-3">Ad,soyad</th>
                 <th className="col-md-4">İxtisas</th>
@@ -82,7 +86,6 @@ class StudentList extends Component {
                 <th className="col-md-1">Kurs</th>
                 <th className="col-md-2"></th>
               </tr>
-            {/* </div> */}
           </thead>
           <tbody>
             {this.props.students.map(student => (
@@ -123,47 +126,6 @@ class StudentList extends Component {
               </div>
             ))}
 
-            {this.props.newStudents.map(newStudent => (
-              <div>
-                {newStudent.editing ? (
-                  <EditStudent student={newStudent} />
-                ) : (
-                  <tr key={newStudent.id} className="row">
-                    <td className="col-md-3">{newStudent.studentName}</td>
-                    <td className="col-md-4">{newStudent.specialtyName} </td>
-                    <td className="col-md-2">{newStudent.groupNumber} </td>
-                    <td className="col-md-1">{newStudent.educationYear} </td>
-                    <td className="col-md-2">
-                      <i
-                        className="fa fa-edit"
-                        onClick={() =>
-                          this.props.actions.editStudent(newStudent)
-                        }
-                      ></i>
-                      {newStudent.chosen ? (
-                        <i
-                          className="fa fa-minus"
-                          onClick={() =>
-                            this.removeFromTechWarriors(newStudent)
-                          }
-                        ></i>
-                      ) : (
-                        <i
-                          className="fa fa-plus"
-                          onClick={() => this.addToTechWarriors(newStudent)}
-                        ></i>
-                      )}
-                      <i
-                        className="fa fa-trash"
-                        onClick={() =>
-                          this.deleteStudent(newStudent)
-                        }
-                      />
-                    </td>
-                  </tr>
-                )}
-              </div>
-            ))}
           </tbody>
         </table>
       </div>
@@ -189,7 +151,6 @@ function mapDispatchToProps(dispatch) {
       ),
       deleteStudent: bindActionCreators(studentAction.deleteStudent, dispatch),
       editStudent: bindActionCreators(studentAction.editStudent, dispatch)
-      // editStudent: bindActionCreators(studentAction.editStudent, dispatch)
     }
   };
 }

@@ -9,8 +9,7 @@ export default function getStudentsReducer(
     case actionTypes.GET_STUDENTS_SUCCESS:
       return action.payload.map(student => ({
         ...student,
-        editing: false,
-        chosen: false
+        editing: false
       }));
     case actionTypes.DELETE_STUDENT:
       return state.filter(student => student.id !== action.payload.id);

@@ -6,6 +6,13 @@ export default function techWarriors(
   action
 ) {
   switch (action.type) {
+    case actionTypes.GET_TECHWARRIORS_SUCCESS:
+      return action.payload.map(member=>({
+        ...member,
+        chosen: true
+      })
+        );
+
     case actionTypes.ADD_TO_TECHWARRIORS:
       var addedStudent = state.find(c => c.id === action.payload.id);
       if (addedStudent) {
@@ -17,7 +24,7 @@ export default function techWarriors(
         });
         return newState;
       } else {
-        return [...state, { ...action.payload }];
+        return [...state, { ...action.payload, chosen:true }];
       }
 
     case actionTypes.REMOVE_FROM_TECHWARRIORS:

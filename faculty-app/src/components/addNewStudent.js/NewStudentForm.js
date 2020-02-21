@@ -19,7 +19,7 @@ class NewStudentForm extends Component {
       case "Kompüter elmləri":
         specialtyId = 1;
         break;
-      case "Sistem mwühəndisliyi":
+      case "Sistem mühəndisliyi":
         specialtyId = 2;
         break;
       case "Texnologiya mühəndisliyi":

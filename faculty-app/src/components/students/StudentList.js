@@ -6,14 +6,18 @@ import * as studentAction from "../../redux/actions/studentAction";
 import * as techWarriorsAction from "../../redux/actions/techWarriorsAction";
 import EditStudent from "../edit/EditStudent";
 import Swal from "sweetalert2";
-import axios from 'axios';
+import axios from "axios";
 class StudentList extends Component {
   componentDidMount() {
     this.props.actions.getStudents();
   }
 
-  addToTechWarriors(student) {
-    this.props.actions.addToTechWarriors(student);
+  addToTechWarriors = async student => {
+    const response = await axios.post(
+      "http://localhost:3004/techwarriors",
+      student
+    );
+    this.props.actions.addToTechWarriors(response.data);
     Swal.fire({
       position: "center",
       icon: "success",
@@ -21,8 +25,19 @@ class StudentList extends Component {
       showConfirmButton: false,
       timer: 1500
     });
-  }
-  removeFromTechWarriors(student) {
+
+    const data = {
+      ...student,
+      chosen: true
+    };
+
+    const resp = await axios.put(
+      `http://localhost:3004/students/${student.id}`,
+      data
+    );
+  };
+
+  removeFromTechWarriors = async student => {
     Swal.fire({
       title: "Əminsiniz?",
       text: student.studentName + ' "Tech Warriors" komandasından çıxarılsın ?',
@@ -43,12 +58,21 @@ class StudentList extends Component {
         this.props.actions.removeFromTechWarriors(student);
       }
     });
-  }
+    await axios.delete(`http://localhost:3004/techWarriors/${student.id}`);
+    const data = {
+      ...student,
+      chosen: false
+    };
+    const resp = await axios.put(
+      `http://localhost:3004/students/${student.id}`,
+      data
+    );
+  };
 
-  deleteStudent = async (student)=>{
+  deleteStudent = async student => {
     Swal.fire({
       title: "Əminsiniz?",
-      text: student.studentName + ' siyahıdan silinsin?',
+      text: student.studentName + " siyahıdan silinsin?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "green",
@@ -62,15 +86,13 @@ class StudentList extends Component {
           student.studentName + " siyahıdan çıxarıldı",
           "success"
         );
-        
-         
 
         this.props.actions.deleteStudent(student);
       }
     });
     await axios.delete(`http://localhost:3004/students/${student.id}`);
-    this.props.actions.removeFromTechWarriors(student);
-  }
+    await axios.delete(`http://localhost:3004/techWarriors/${student.id}`);
+  };
   render() {
     return (
       <div className="students">
@@ -79,13 +101,13 @@ class StudentList extends Component {
         </h4>
         <table className="table">
           <thead>
-              <tr className="row">
-                <th className="col-md-3">Ad,soyad</th>
-                <th className="col-md-4">İxtisas</th>
-                <th className="col-md-2">Qrup</th>
-                <th className="col-md-1">Kurs</th>
-                <th className="col-md-2"></th>
-              </tr>
+            <tr className="row">
+              <th className="col-md-3">Ad,soyad</th>
+              <th className="col-md-4">İxtisas</th>
+              <th className="col-md-2">Qrup</th>
+              <th className="col-md-1">Kurs</th>
+              <th className="col-md-2"></th>
+            </tr>
           </thead>
           <tbody>
             {this.props.students.map(student => (
@@ -116,16 +138,13 @@ class StudentList extends Component {
                       )}
                       <i
                         className="fa fa-trash"
-                        onClick={() =>
-                          this.deleteStudent(student)
-                        }
+                        onClick={() => this.deleteStudent(student)}
                       />
                     </td>
                   </tr>
                 )}
               </div>
             ))}
-
           </tbody>
         </table>
       </div>
